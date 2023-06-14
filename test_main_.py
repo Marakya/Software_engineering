@@ -17,3 +17,8 @@ def test_read_sum():
 def test_kl():
     result = main_.generate_image("")
     assert imghdr.what(result) == "jpeg"
+
+
+def test_null():
+    summ = main_.predict_text("")
+    assert type(summ) == str
