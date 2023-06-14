@@ -3,7 +3,6 @@ import gradio as gr
 text_sum = gr.Blocks.load(name="huggingface/csebuetnlp/mT5_multilingual_XLSum")
 picture_gen = gr.Blocks.load(name="huggingface/CompVis/stable-diffusion-v1-4")
 
-
 # Если юзер не ввел текст, то суммаризация происходит по дефолтному тексту
 def predict_text(text):
     if len(text) > 0:
