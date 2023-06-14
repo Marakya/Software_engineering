@@ -1,5 +1,5 @@
 import gradio as gr
-#import numpy as np
+
 
 text_sum = gr.Blocks.load(name="huggingface/csebuetnlp/mT5_multilingual_XLSum")
 picture_gen = gr.Blocks.load(name="huggingface/CompVis/stable-diffusion-v1-4")
