@@ -5,6 +5,7 @@ import gradio
 
 
 def test_read_sum():
+    """ Проверка, что вывод первой модели (суммаризации текста) - текст """
     summ = main_.predict_text('Videos that say approved vaccines are dangerous and cause autism, \
                             cancer or infertility are among those that will be taken down, the company said.  \
                             The policy includes the termination of accounts of anti-vaccine influencers.  \
@@ -16,15 +17,18 @@ def test_read_sum():
 
 
 def test_kl():
+    """ Проверка, что вторая модель выдает результат свой работы в формате "jpeg", и также работает с дефолтным текстом """
     result = main_.generate_image("")
     assert imghdr.what(result) == "jpeg"
 
 
 def test_null():
+    """ Проверка, если пользователь не ввел текст, то модель будет работать с дефолтным текстом, результат работы - текст """
     summ = main_.predict_text("")
     assert type(summ) == str
 
 
 def test_error():
+    """ Ввод чисел, вместо текста приводит к ошибке gradio.exceptions.Error """
     with pytest.raises(gradio.exceptions.Error):
         main_.text_sum(12323434)
