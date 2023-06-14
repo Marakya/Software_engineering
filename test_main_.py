@@ -1,6 +1,7 @@
 import main_
 import imghdr
 import pytest
+import gradio
 
 
 def test_read_sum():
@@ -22,3 +23,8 @@ def test_kl():
 def test_null():
     summ = main_.predict_text("")
     assert type(summ) == str
+
+
+def test_error():
+    with pytest.raises(gradio.exceptions.Error):
+        main_.text_sum(12323434)
